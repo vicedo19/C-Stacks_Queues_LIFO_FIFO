@@ -1,62 +1,34 @@
 #include "monty.h"
 /**
- * getOp - getOp
- * @stack: stack_t stack
- * @counter: int counter
- * @code: char code
+ * get_op_func - Function that selects the function to perform the operation
+ * asked by the user
+ *
+ * @s: String with the name of function
+ *
+ * Return: 0
  */
-void getOp(stack_t **stack, unsigned int counter, char *code)
-{
-	int i = 0;
 
-	instruction_t op[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{"pop", _pop},
-		{"nop", _nop},
-		{"pint", _pint},
-		{"swap", _swap},
-		{"add", _add},
-		{"sub", _sub},
-		{"div", _div},
-		{"mod", _mod},
-		{"mul", _mul},
-		{"rotl", _rotl},
+void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
+{
+	instruction_t ops[] = {
+		{"push", op_push},
+		{"pall", op_pall},
+		{"pint", op_pint},
+		{"pop", op_pop},
+		{"swap", op_swap},
+		{"add", op_add},
+		{"nop", op_nop},
 		{NULL, NULL}
 	};
 
-	while (op[i].opcode)
+	int i = 0;
+
+	while (ops[i].opcode != NULL)
 	{
-		if ((strcmp(op[i].opcode, code)) == 0)
-		{
-			op[i].f(stack, counter);
-			break;
-		}
+		if (strcmp(ops[i].opcode, s) == 0)
+			return (ops[i].f);
 		i++;
 	}
-	if (op[i].f == NULL)
-	{
-		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", counter, code);
-		free_all(*(stack));
-		exit(EXIT_FAILURE);
-	}
 
-}
-
-/**
- * free_all - free_all.
- * @stack: stack_t stack.
- */
-void free_all(stack_t *stack)
-{
-	stack_t *tmp;
-
-	while (stack != NULL)
-	{
-		tmp = stack->next;
-		free(stack);
-		stack = tmp;
-	}
-	fclose(b.f);
-	free(b.stream);
+	return (NULL);
 }
