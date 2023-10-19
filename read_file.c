@@ -1,5 +1,9 @@
+#define _GNU_SOURCE
 #include "monty.h"
-/**
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
  * read_file - Function that read the content of a file
  *
  * @filename: Name of the file

@@ -5,8 +5,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
+#include <limits.h>
 
 #define STR_DELIM "\t\r\n\a\v\f "
+#define  _GNU_SOURCE
 
 extern int stack_value;
 
@@ -51,5 +54,8 @@ void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
+void stack_rotl(stack_t **head, stack_t *new_top_elem);
 int is_number(char *token);
+
+
 #endif /* MONTY_H */
