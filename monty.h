@@ -5,11 +5,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <unistd.h>
 #include <limits.h>
 
+
 #define STR_DELIM "\t\r\n\a\v\f "
-#define  _GNU_SOURCE
 
 extern int stack_value;
 
