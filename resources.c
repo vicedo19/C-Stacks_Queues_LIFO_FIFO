@@ -2,11 +2,10 @@
 
 /**
  * is_number - Function that validate if token is a number
- *
  * @token: A token to validate
- *
  * Return: 1 if is number and 0 if not a number
  */
+
 int is_number(char *token)
 {
 	int i = 0;
