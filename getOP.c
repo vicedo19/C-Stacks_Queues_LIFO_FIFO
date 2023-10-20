@@ -1,10 +1,10 @@
 #include "monty.h"
+
 /**
  * get_op_func - Function that selects the function to perform the operation
- * asked by the user
+ *		 asked by the user
  *
  * @s: String with the name of function
- *
  * Return: 0
  */
 
