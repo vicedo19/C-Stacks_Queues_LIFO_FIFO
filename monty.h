@@ -55,6 +55,7 @@ void op_nop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void stack_rotl(stack_t **head, stack_t *new_top_elem);
 int is_number(char *token);
+void add_queue(stack_t **head, int n);
 
 
 #endif /* MONTY_H */
