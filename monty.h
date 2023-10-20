@@ -56,6 +56,8 @@ void free_stack(stack_t *stack);
 void stack_rotl(stack_t **head, stack_t *new_top_elem);
 int is_number(char *token);
 void add_queue(stack_t **head, int n);
+void find_queue(stack_t **head, unsigned int line_number);
+void rotateto_bottom(stack_t **head, __attribute__((unused)) unsigned int line_number);
 
 
 #endif /* MONTY_H */
