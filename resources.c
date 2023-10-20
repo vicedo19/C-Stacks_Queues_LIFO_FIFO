@@ -11,9 +11,11 @@ int is_number(char *token)
 	int i = 0;
 
 	if (token == NULL)
+	{
 		return (0);
+	}
 
-	while (token[i] != '\0')
+	while (token[i])
 	{
 		if (i == 0 && token[i] == '-')
 			i++;
